@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="How it works: your holdings go to the CoinMarketCap API (9 endpoints), the attribution engine splits the move into market, sector and coin-specific parts, and the result is a plain-English explanation with citations.">
+  <defs>
+    <style>
+      .sans { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .flow { stroke-dasharray: 6 8; animation: dash 1.2s linear infinite; }
+      @keyframes dash { to { stroke-dashoffset: -28; } }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#4b5675"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="300" rx="22" fill="#0e1424"/>
+
+  <!-- connectors -->
+  <g fill="none" stroke="#4b5675" stroke-width="2.5">
+    <path id="p1" class="flow" d="M262 150H318" marker-end="url(#arrow)"/>
+    <path id="p2" class="flow" d="M562 150H618" marker-end="url(#arrow)"/>
+    <path id="p3" class="flow" d="M862 150H918" marker-end="url(#arrow)"/>
+  </g>
+  <!-- travelling data dots -->
+  <circle r="5" fill="#6e8bff"><animateMotion dur="2.4s" repeatCount="indefinite" path="M262 150H318"/></circle>
+  <circle r="5" fill="#f5b942"><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite" path="M562 150H618"/></circle>
+  <circle r="5" fill="#c792ff"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite" path="M862 150H918"/></circle>
+
+  <!-- 1: holdings -->
+  <g transform="translate(40 60)">
+    <rect width="222" height="180" rx="16" fill="#161d30" stroke="#2a3350"/>
+    <text x="20" y="36" class="sans" font-size="13" font-weight="700" fill="#6e8bff" letter-spacing="1.2">1 · YOUR BAG</text>
+    <text x="20" y="80" class="mono" font-size="16" fill="#ffffff">BTC:0.1</text>
+    <text x="20" y="106" class="mono" font-size="16" fill="#ffffff">SOL:20</text>
+    <text x="20" y="132" class="mono" font-size="16" fill="#ffffff">PAXG:0.5</text>
+    <text x="20" y="160" class="sans" font-size="12" fill="#8b94a7">crypto + tokenized gold</text>
+  </g>
+
+  <!-- 2: CMC API -->
+  <g transform="translate(330 60)">
+    <rect width="232" height="180" rx="16" fill="#161d30" stroke="#2a3350"/>
+    <text x="20" y="36" class="sans" font-size="13" font-weight="700" fill="#6e8bff" letter-spacing="1.2">2 · COINMARKETCAP</text>
+    <g class="sans" font-size="13" fill="#c8d0e0">
+      <text x="20" y="66">live quotes</text>
+      <text x="20" y="88">global market cap</text>
+      <text x="20" y="110">30-day history</text>
+      <text x="20" y="132">sector categories</text>
+      <text x="20" y="154">sentiment · liquidations</text>
+    </g>
+    <circle cx="206" cy="31" r="5" fill="#3fb950"><animate attributeName="opacity" values="1;0.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- 3: engine -->
+  <g transform="translate(630 60)">
+    <rect width="232" height="180" rx="16" fill="#161d30" stroke="#2a3350"/>
+    <text x="20" y="36" class="sans" font-size="13" font-weight="700" fill="#6e8bff" letter-spacing="1.2">3 · ATTRIBUTION</text>
+    <g class="mono" font-size="13">
+      <text x="20" y="72" fill="#8ea5ff">market = β × M</text>
+      <text x="20" y="100" fill="#f5b942">sector = S − M</text>
+      <text x="20" y="128" fill="#c792ff">specific = rest</text>
+    </g>
+    <text x="20" y="160" class="sans" font-size="12" fill="#8b94a7">parts sum exactly to P&amp;L</text>
+  </g>
+
+  <!-- 4: explanation -->
+  <g transform="translate(930 60)">
+    <rect width="230" height="180" rx="16" fill="#161d30" stroke="#2a3350"/>
+    <text x="20" y="36" class="sans" font-size="13" font-weight="700" fill="#6e8bff" letter-spacing="1.2">4 · WHY, CITED</text>
+    <text x="20" y="70" class="sans" font-size="14" fill="#ffffff">Market +1.37%</text>
+    <rect x="128" y="57" width="30" height="18" rx="5" fill="#0b1020" stroke="#3b4566"/>
+    <text x="143" y="70" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#8ea5ff">E2</text>
+    <text x="20" y="100" class="sans" font-size="14" fill="#ffffff">Solana sector +2.1%</text>
+    <rect x="164" y="87" width="30" height="18" rx="5" fill="#0b1020" stroke="#3b4566"/>
+    <text x="179" y="100" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#f5b942">E9</text>
+    <text x="20" y="130" class="sans" font-size="14" fill="#ffffff">Gold -0.4%</text>
+    <rect x="104" y="117" width="38" height="18" rx="5" fill="#0b1020" stroke="#3b4566"/>
+    <text x="123" y="130" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#c792ff">E10</text>
+    <text x="20" y="160" class="sans" font-size="12" fill="#8b94a7">click → real request + response</text>
+  </g>
+</svg>

@@ -1,39 +1,67 @@
-# Why did my bag move?
+<div align="center">
 
-**Paste your crypto holdings and find out why your portfolio moved in the last 24 hours:** how much came from the whole market, how much from your coins' sectors, and how much was specific to your coins. Every number links to the CoinMarketCap API call it came from.
+<a href="https://why-did-my-bag-move.vercel.app"><img src="docs/banner.svg" alt="Why did my bag move? Your portfolio's 24h move split into market, sector and coin-specific parts, every number cited to a live CoinMarketCap API call." width="100%"></a>
 
-**Live demo:** https://why-did-my-bag-move.vercel.app
-**Track:** Markets & Trading Tools · **Hackathon:** Build with CMC: API Hackathon (DoraHacks) · #BuildwithCMC
+<br>
 
-![Screenshot of the app explaining a BTC + ETH + SOL portfolio](docs/screenshot.png)
+<a href="https://why-did-my-bag-move.vercel.app"><img src="https://img.shields.io/badge/%E2%96%B6%20Live%20demo-why--did--my--bag--move.vercel.app-3861fb?style=for-the-badge&logo=vercel&logoColor=white" alt="Live demo"></a>
+
+<img src="https://img.shields.io/badge/Track-Markets%20%26%20Trading%20Tools-f5a524?style=flat-square" alt="Track: Markets & Trading Tools">
+<img src="https://img.shields.io/badge/%23BuildwithCMC-DoraHacks-17345a?style=flat-square" alt="#BuildwithCMC">
+<img src="https://img.shields.io/badge/tests-91%20passing-3fb950?style=flat-square" alt="91 tests passing">
+<img src="https://img.shields.io/badge/CMC%20plan-free%20Basic%20works-3fb950?style=flat-square" alt="Works on the free Basic plan">
+<br>
+<img src="https://img.shields.io/badge/TypeScript-strict-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript strict">
+<img src="https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js 16">
+<img src="https://img.shields.io/badge/MCP-server-a855f7?style=flat-square" alt="MCP server">
+<img src="https://img.shields.io/badge/AI%20model-none%20%E2%80%94%20pure%20math-8b949e?style=flat-square" alt="No AI model">
+<img src="https://img.shields.io/badge/license-MIT-8b949e?style=flat-square" alt="MIT license">
+
+<h3>
+  <a href="https://why-did-my-bag-move.vercel.app">Try it live</a>
+  ·
+  <a href="#-how-it-works">How it works</a>
+  ·
+  <a href="#-coinmarketcap-endpoints-used">CMC endpoints</a>
+  ·
+  <a href="#-mcp-server">MCP server</a>
+  ·
+  <a href="FEEDBACK.md">API feedback</a>
+</h3>
+
+</div>
 
 ---
 
-## The problem
+## 🤔 The problem
 
-Your portfolio is down 4% today. Was that the whole market? Your coins' sector? Or news about one coin you hold? Price apps show *what* moved, but not *why*. Traders and investors usually piece this together by hand across several tabs.
+> *"My portfolio is down 4% today. Was that the whole market? My coins' sector? Or news about one coin I hold?"*
 
-## What it does
+Price apps show **what** moved, but not **why**. Traders and investors usually piece this together by hand across several tabs. **Why did my bag move?** answers it in one click, and shows its work.
 
-You enter holdings like `BTC:0.1 ETH:1 SOL:20 PAXG:0.5`. The app then:
+## ✨ What it does
 
-1. **Measures your P&L:** your 24h profit or loss, per coin and in total.
-2. **Splits each coin's move into three parts:**
-   - **Market:** `beta × whole-market 24h change`, where beta is how strongly the coin followed the total crypto market cap over the last 30 days.
-   - **Sector:** the coin's sector change minus the market change. The sector is picked automatically from CMC categories, for example "Solana Ecosystem" for SOL or "Tokenized Gold" for PAXG.
-   - **Coin-specific:** whatever is left over, meaning news, flows or events about that coin.
+Paste holdings like `BTC:0.1 ETH:1 SOL:20 PAXG:0.5` and get:
 
-   The three parts add up exactly to each coin's P&L.
-3. **Writes a plain-English explanation:** the verdict (mostly market, sector or coin-specific), the biggest driver, Fear & Greed sentiment and liquidation pressure.
-4. **Cites every figure.** Each sentence carries `[E1]`-style citations, and clicking one opens the exact request and the real CMC response behind it.
+| | |
+|---|---|
+| 💰 **Your 24h P&L** | Per coin and in total, from live CoinMarketCap prices |
+| 🌍 **Market part** | `beta × whole-market move`, with beta measured from the last 30 days |
+| 🏷️ **Sector part** | The coin's sector vs the market, auto-picked from CMC categories, e.g. *Solana Ecosystem* or *Tokenized Gold* |
+| 🎯 **Coin-specific part** | Whatever is left over: news, flows or events about that coin |
+| 🗣️ **Plain-English "why"** | A verdict, the biggest driver, Fear & Greed sentiment and liquidation pressure |
+| 🔎 **A citation on every number** | Click `E2` to see the exact request and the **real CMC response** behind it |
+| 🟢 **Live mode** | Re-explains your bag every 2 minutes with fresh data, showing how much it changed since the last update |
 
-5. **Live mode.** Switch it on and the app re-explains your bag with fresh CMC data every 2 minutes, showing "updated 20s ago" and how much your bag changed since the last update. It pauses while the tab is hidden and stops after 10 minutes to protect the credit budget. Each refresh costs about 3-5 credits, because history and sectors stay cached.
+The three parts **add up exactly** to each coin's P&L. **No AI model is involved:** the explanation comes from deterministic, tested math, so it is free to run and cannot invent numbers. The move itself always uses **live** data, and the 30 days of history only measure each coin's sensitivity to the market (beta).
 
-The move itself always uses **live** data: prices, the market's 24h change, sectors, sentiment and liquidations. The 30 days of history are used only to measure each coin's sensitivity to the market (beta).
+<div align="center">
+<img src="docs/result-down-day.png" alt="A real down day: the app finds the move was mostly coin-specific (ETH), with PAXG's sector Tokenized Gold and every figure cited" width="88%">
+<br><sub><b>A real down day (17 Nov 2026):</b> the bag fell $28, mostly coin-specific: ETH −1.69% against −0.07% expected. PAXG's sector is <i>Tokenized Gold</i>. Every figure links to its CMC call.</sub>
+</div>
 
-There is no AI model in the loop. The explanation comes from deterministic, tested math, so it is free to run and it cannot invent numbers.
-
-**Example output (live, 17 Nov 2026):**
+<details>
+<summary><b>📈 Example on an up day (text output)</b></summary>
 
 > **Your bag is up $173.91 (+1.81%) over 24h, now worth $9,798.08.**
 > - Verdict: mostly a market-wide move. [E1]
@@ -43,17 +71,26 @@ There is no AI model in the loop. The explanation comes from deterministic, test
 > - Sentiment: the Fear & Greed index is 13/100 ("Extreme fear") [E3].
 > - Leverage: $259M of positions were liquidated in 24h, 48% of them longs [E10].
 
-It runs three ways, all built on the same code:
+<img src="docs/screenshot.png" alt="Full page on an up day" width="100%">
+</details>
 
-| Surface | How |
-|---|---|
-| **Web app** | https://why-did-my-bag-move.vercel.app, or `npm run dev` locally |
-| **MCP server** for AI assistants (Claude Desktop, Cursor, ...) | `npm run mcp`, see [MCP server](#mcp-server) |
-| **Command line** | `npm run explain -- BTC:0.1 SOL:20` |
+### Three ways to use it, one codebase
+
+| | Surface | How |
+|---|---|---|
+| 🌐 | **Web app** | **https://why-did-my-bag-move.vercel.app**, or `npm run dev` locally |
+| 🤖 | **MCP server** for AI assistants (Claude Desktop, Cursor, ...) | `npm run mcp`, see [MCP server](#-mcp-server) |
+| ⌨️ | **Command line** | `npm run explain -- BTC:0.1 SOL:20` |
+
+## 🧠 How it works
+
+<div align="center">
+<img src="docs/how-it-works.svg" alt="How it works: your bag, then the CoinMarketCap API, then the attribution engine, then a cited explanation" width="100%">
+</div>
 
 ---
 
-## CoinMarketCap endpoints used
+## 📡 CoinMarketCap endpoints used
 
 Every endpoint below is called with a real key, and its real response is saved in [`samples/`](samples/) (see [`samples/ENDPOINTS.md`](samples/ENDPOINTS.md)). All core features work on the **free Basic plan**, so the demo keeps working after the hackathon's free Startup upgrade ends.
 
@@ -73,7 +110,7 @@ Every endpoint below is called with a real key, and its real response is saved i
 
 A full explanation of a 3-4 coin portfolio makes about 10 calls and costs about 10 credits, or 0 when served from cache. These endpoints were also probed but **are not used**, because they return `403 / 1006` on the Basic plan: `trending/latest`, `trending/gainers-losers` and `price-performance-stats/latest`.
 
-### Evidence of a real API call
+### 🧾 Evidence of a real API call
 
 The request the app makes (the key goes only in the header, server-side):
 
@@ -91,11 +128,15 @@ The real response, saved in [`samples/fear-and-greed-latest.json`](samples/fear-
 }
 ```
 
-Inside the app, every explanation ends with an **Evidence** panel listing each call: method, URL, HTTP status, credits, whether it came from cache, and the raw response.
+Inside the app, every explanation ends with an **Evidence** panel listing each call: method, URL, HTTP status, credits, whether it came from cache, and the raw response. The key is never shown:
+
+<div align="center">
+<img src="docs/evidence.png" alt="Evidence panel: the real request and CoinMarketCap response for citation E8" width="88%">
+</div>
 
 ---
 
-## Quick start
+## 🚀 Quick start
 
 Requirements: Node.js 20 or newer, and a free CoinMarketCap API key from https://pro.coinmarketcap.com/account (the Basic plan is enough).
 
@@ -120,7 +161,7 @@ Prefer to set it up by hand? Copy `.env.example` to `.env` and set `CMC_PRO_API_
 
 ---
 
-## MCP server
+## 🤖 MCP server
 
 The same tools are exposed over the [Model Context Protocol](https://modelcontextprotocol.io), so an AI assistant can answer "why did my bag move?" with cited CMC data.
 
@@ -153,7 +194,7 @@ On Windows, use `"command": "npm.cmd"`. The `-s` flag matters: it keeps npm's ba
 
 ---
 
-## How it works
+## 🏗️ Architecture
 
 ```
 app/                     Next.js app router: page, layout, POST /api/explain
@@ -190,20 +231,20 @@ Each part in dollars is `value 24h ago × part / 100`, so the parts add up exact
 
 It then takes the most specific category left. When nothing qualifies, the coin gets no sector, and its move is split only between market and coin-specific.
 
-### Reliability: built for the judging period
+### 🛡️ Reliability: built for the judging period
 
 - **Basic-plan only.** Every core endpoint works on the free plan, so nothing breaks when the hackathon Startup tier ends.
 - **Graceful degradation.** Only the live quotes call is required. History (beta), sectors, sentiment and liquidations are optional: if one is rate-limited or not on the plan, the explanation still runs and a note says what was skipped. Coins without history fall back to beta 1, and the app says so.
 - **Caching.** Live data is cached for 60 s, history and sectors for 1 h. When CMC returns 429/5xx or is unreachable, the last good answer (up to 24 h old) is served and **labelled stale** in the evidence. Plan and auth errors are never hidden behind old data.
 - **Rate limiting.** Each visitor gets 6 explanations per minute, with 20 per minute overall, which protects the credit budget and the 50 calls/minute Basic limit. The page also waits out a 429's `Retry-After` (the button shows "Wait 31s") and never sends two requests less than 2 s apart, so rapid clicking cannot hammer the API.
 
-### Security
+### 🔒 Security
 
 - The API key lives only in `.env` (gitignored) or in a Vercel secret. `.env.example` holds a placeholder.
 - The browser never talks to CMC. The key is sent only as a server-side `X-CMC_PRO_API_KEY` header, and it never appears in URLs, evidence, logs or error messages (tested).
 - `npm run check:secrets` scans every file git would commit for key-shaped strings, and runs as part of `npm run verify`.
 
-### Testing
+### ✅ Testing
 
 ```bash
 npm run verify   # secret scan, tsc --noEmit (strict), eslint, 91 vitest tests
@@ -213,7 +254,7 @@ Most tests replay **real CMC responses** from `samples/` instead of hand-written
 
 ---
 
-## Limitations
+## ⚠️ Limitations
 
 - **The windows don't line up exactly.** CMC's coin `percent_change_24h` and the global `total_market_cap_yesterday_percentage_change` are computed by CMC at slightly different times, so the market part is an estimate.
 - **Beta is a 30-day estimate.** It is clamped to between -1 and 4 so one odd month cannot produce absurd figures.
@@ -222,10 +263,10 @@ Most tests replay **real CMC responses** from `samples/` instead of hand-written
 - **Real-world assets use their tracking tokens.** RWA quotes have no 24h change field, so tokenized gold enters a portfolio as its token (PAXG, XAUt).
 - **This is not financial advice.**
 
-## Feedback on the API
+## 💬 Feedback on the API
 
 What the API made possible, and where it got in the way: see **[FEEDBACK.md](FEEDBACK.md)**.
 
-## License
+## 📄 License
 
 [MIT](LICENSE)
