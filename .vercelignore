@@ -1,0 +1,10 @@
+# Never upload secrets: the key is set as a Vercel environment variable instead.
+.env
+.env.*
+!.env.example
+
+node_modules
+.next
+coverage
+*.log
+*.tsbuildinfo

@@ -1,0 +1,46 @@
+{
+  "name": "why-did-my-bag-move",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Explains why your crypto portfolio moved in 24h (market vs sector vs coin-specific), as a web app and MCP server, with every number cited to a live CoinMarketCap API call.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "mcp": "tsx src/mcp/stdio.ts",
+    "mcp:smoke": "tsx scripts/mcp-smoke.ts",
+    "setup": "tsx scripts/setup.ts",
+    "probe": "tsx scripts/probe-endpoints.ts",
+    "explain": "tsx scripts/explain.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "check:secrets": "tsx scripts/check-secrets.ts",
+    "verify": "npm run check:secrets && npm run typecheck && npm run lint && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "next": "16.4.6",
+    "react": "19.1.10",
+    "react-dom": "19.1.10",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.4.0",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "dotenv": "17.2.3",
+    "eslint": "10.14.0",
+    "eslint-config-next": "16.4.6",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "5.1.0"
+  }
+}
