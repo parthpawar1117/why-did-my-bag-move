@@ -43,7 +43,7 @@ Price apps show **what** moved, but not **why**. Traders and investors usually p
 
 Paste holdings like `BTC:0.1 ETH:1 SOL:20 PAXG:0.5` and get:
 
-| | |
+| You get | Details |
 |---|---|
 | 💰 **Your 24h P&L** | Per coin and in total, from live CoinMarketCap prices |
 | 🌍 **Market part** | `beta × whole-market move`, with beta measured from the last 30 days |
@@ -76,7 +76,7 @@ The three parts **add up exactly** to each coin's P&L. **No AI model is involved
 
 ### Three ways to use it, one codebase
 
-| | Surface | How |
+| | Surface | How to use it |
 |---|---|---|
 | 🌐 | **Web app** | **https://why-did-my-bag-move.vercel.app**, or `npm run dev` locally |
 | 🤖 | **MCP server** for AI assistants (Claude Desktop, Cursor, ...) | `npm run mcp`, see [MCP server](#-mcp-server) |
