@@ -5,6 +5,7 @@
 <br>
 
 <a href="https://why-did-my-bag-move.vercel.app"><img src="https://img.shields.io/badge/%E2%96%B6%20Live%20demo-why--did--my--bag--move.vercel.app-3861fb?style=for-the-badge&logo=vercel&logoColor=white" alt="Live demo"></a>
+<a href="https://youtu.be/UGV9SjfyvrM"><img src="https://img.shields.io/badge/Demo%20video-1%3A16-ff0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Demo video (1:16)"></a>
 
 <img src="https://img.shields.io/badge/Track-Markets%20%26%20Trading%20Tools-f5a524?style=flat-square" alt="Track: Markets & Trading Tools">
 <img src="https://img.shields.io/badge/%23BuildwithCMC-DoraHacks-17345a?style=flat-square" alt="#BuildwithCMC">
@@ -19,6 +20,8 @@
 
 <h3>
   <a href="https://why-did-my-bag-move.vercel.app">Try it live</a>
+  ·
+  <a href="https://youtu.be/UGV9SjfyvrM">Watch the demo</a>
   ·
   <a href="#-how-it-works">How it works</a>
   ·
