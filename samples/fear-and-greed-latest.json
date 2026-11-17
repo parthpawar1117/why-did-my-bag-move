@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://pro-api.coinmarketcap.com/v3/fear-and-greed/latest",
+    "params": {},
+    "headers": {
+      "X-CMC_PRO_API_KEY": "<your key>"
+    }
+  },
+  "httpStatus": 200,
+  "response": {
+    "data": {
+      "value": 13,
+      "update_time": "2026-11-17T13:38:10.018Z",
+      "value_classification": "Extreme fear"
+    },
+    "status": {
+      "timestamp": "2026-11-17T13:41:42.340Z",
+      "error_code": "0",
+      "error_message": "",
+      "elapsed": 4,
+      "credit_count": 1
+    }
+  }
+}

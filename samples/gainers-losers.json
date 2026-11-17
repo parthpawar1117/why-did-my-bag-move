@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers",
+    "params": {
+      "limit": "10"
+    },
+    "headers": {
+      "X-CMC_PRO_API_KEY": "<your key>"
+    }
+  },
+  "httpStatus": 403,
+  "response": {
+    "status": {
+      "timestamp": "2026-11-17T13:42:01.006Z",
+      "error_code": 1006,
+      "error_message": "Your API Key subscription plan doesn't support this endpoint.",
+      "elapsed": 0,
+      "credit_count": 0,
+      "notice": null
+    }
+  }
+}

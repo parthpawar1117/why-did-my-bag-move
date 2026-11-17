@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://pro-api.coinmarketcap.com/v2/cryptocurrency/price-performance-stats/latest",
+    "params": {
+      "symbol": "SOL"
+    },
+    "headers": {
+      "X-CMC_PRO_API_KEY": "<your key>"
+    }
+  },
+  "httpStatus": 403,
+  "response": {
+    "status": {
+      "timestamp": "2026-11-17T13:42:02.724Z",
+      "error_code": 1006,
+      "error_message": "Your API Key subscription plan doesn't support this endpoint.",
+      "elapsed": 1,
+      "credit_count": 0,
+      "notice": null
+    }
+  }
+}

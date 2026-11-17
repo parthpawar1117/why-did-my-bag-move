@@ -1,0 +1,38 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://pro-api.coinmarketcap.com/v5/derivatives/liquidations/quotes/latest",
+    "params": {},
+    "headers": {
+      "X-CMC_PRO_API_KEY": "<your key>"
+    }
+  },
+  "httpStatus": 200,
+  "response": {
+    "data": {
+      "quotes": [
+        {
+          "symbol": "USD",
+          "crypto_id": 2781,
+          "total_liquidations_1h": 6047060.0209444575,
+          "long_liquidations_1h": 1683237.440709598,
+          "short_liquidations_1h": 4363822.580234859,
+          "total_liquidations_4h": 32983435.658309374,
+          "long_liquidations_4h": 11747067.744037265,
+          "short_liquidations_4h": 21236367.914272107,
+          "total_liquidations_24h": 259020129.60726166,
+          "long_liquidations_24h": 124033199.43318681,
+          "short_liquidations_24h": 134986930.17407483,
+          "last_updated": "2026-11-17T13:39:00.000Z"
+        }
+      ]
+    },
+    "status": {
+      "timestamp": "2026-11-17T13:41:53.710Z",
+      "error_code": "0",
+      "error_message": "",
+      "elapsed": 4,
+      "credit_count": 1
+    }
+  }
+}
