@@ -23,11 +23,11 @@
   ·
   <a href="https://youtu.be/UGV9SjfyvrM">Watch the demo</a>
   ·
-  <a href="#-how-it-works">How it works</a>
+  <a href="#how-it-works">How it works</a>
   ·
-  <a href="#-coinmarketcap-endpoints-used">CMC endpoints</a>
+  <a href="#coinmarketcap-endpoints-used">CMC endpoints</a>
   ·
-  <a href="#-mcp-server">MCP server</a>
+  <a href="#mcp-server">MCP server</a>
   ·
   <a href="FEEDBACK.md">API feedback</a>
 </h3>
@@ -36,25 +36,25 @@
 
 ---
 
-## 🤔 The problem
+## The problem
 
 > *"My portfolio is down 4% today. Was that the whole market? My coins' sector? Or news about one coin I hold?"*
 
 Price apps show **what** moved, but not **why**. Traders and investors usually piece this together by hand across several tabs. **Why did my bag move?** answers it in one click, and shows its work.
 
-## ✨ What it does
+## What it does
 
 Paste holdings like `BTC:0.1 ETH:1 SOL:20 PAXG:0.5` and get:
 
 | You get | Details |
 |---|---|
-| 💰 **Your 24h P&L** | Per coin and in total, from live CoinMarketCap prices |
-| 🌍 **Market part** | `beta × whole-market move`, with beta measured from the last 30 days |
-| 🏷️ **Sector part** | The coin's sector vs the market, auto-picked from CMC categories, e.g. *Solana Ecosystem* or *Tokenized Gold* |
-| 🎯 **Coin-specific part** | Whatever is left over: news, flows or events about that coin |
-| 🗣️ **Plain-English "why"** | A verdict, the biggest driver, Fear & Greed sentiment and liquidation pressure |
-| 🔎 **A citation on every number** | Click `E2` to see the exact request and the **real CMC response** behind it |
-| 🟢 **Live mode** | Re-explains your bag every 2 minutes with fresh data, showing how much it changed since the last update |
+| **Your 24h P&L** | Per coin and in total, from live CoinMarketCap prices |
+| **Market part** | `beta × whole-market move`, with beta measured from the last 30 days |
+| **Sector part** | The coin's sector vs the market, auto-picked from CMC categories, e.g. *Solana Ecosystem* or *Tokenized Gold* |
+| **Coin-specific part** | Whatever is left over: news, flows or events about that coin |
+| **Plain-English "why"** | A verdict, the biggest driver, Fear & Greed sentiment and liquidation pressure |
+| **A citation on every number** | Click `E2` to see the exact request and the **real CMC response** behind it |
+| **Live mode** | Re-explains your bag every 2 minutes with fresh data, showing how much it changed since the last update |
 
 The three parts **add up exactly** to each coin's P&L. **No AI model is involved:** the explanation comes from deterministic, tested math, so it is free to run and cannot invent numbers. The move itself always uses **live** data, and the 30 days of history only measure each coin's sensitivity to the market (beta).
 
@@ -64,7 +64,7 @@ The three parts **add up exactly** to each coin's P&L. **No AI model is involved
 </div>
 
 <details>
-<summary><b>📈 Example on an up day (text output)</b></summary>
+<summary><b>Example on an up day (text output)</b></summary>
 
 > **Your bag is up $173.91 (+1.81%) over 24h, now worth $9,798.08.**
 > - Verdict: mostly a market-wide move. [E1]
@@ -81,11 +81,11 @@ The three parts **add up exactly** to each coin's P&L. **No AI model is involved
 
 | | Surface | How to use it |
 |---|---|---|
-| 🌐 | **Web app** | **https://why-did-my-bag-move.vercel.app**, or `npm run dev` locally |
-| 🤖 | **MCP server** for AI assistants (Claude Desktop, Cursor, ...) | `npm run mcp`, see [MCP server](#-mcp-server) |
-| ⌨️ | **Command line** | `npm run explain -- BTC:0.1 SOL:20` |
+| | **Web app** | **https://why-did-my-bag-move.vercel.app**, or `npm run dev` locally |
+| | **MCP server** for AI assistants (Claude Desktop, Cursor, ...) | `npm run mcp`, see [MCP server](#mcp-server) |
+| | **Command line** | `npm run explain -- BTC:0.1 SOL:20` |
 
-## 🧠 How it works
+## How it works
 
 <div align="center">
 <img src="docs/how-it-works.svg" alt="How it works: your bag, then the CoinMarketCap API, then the attribution engine, then a cited explanation" width="100%">
@@ -93,7 +93,7 @@ The three parts **add up exactly** to each coin's P&L. **No AI model is involved
 
 ---
 
-## 📡 CoinMarketCap endpoints used
+## CoinMarketCap endpoints used
 
 Every endpoint below is called with a real key, and its real response is saved in [`samples/`](samples/) (see [`samples/ENDPOINTS.md`](samples/ENDPOINTS.md)). All core features work on the **free Basic plan**, so the demo keeps working after the hackathon's free Startup upgrade ends.
 
@@ -113,7 +113,7 @@ Every endpoint below is called with a real key, and its real response is saved i
 
 A full explanation of a 3-4 coin portfolio makes about 10 calls and costs about 10 credits, or 0 when served from cache. These endpoints were also probed but **are not used**, because they return `403 / 1006` on the Basic plan: `trending/latest`, `trending/gainers-losers` and `price-performance-stats/latest`.
 
-### 🧾 Evidence of a real API call
+### Evidence of a real API call
 
 The request the app makes (the key goes only in the header, server-side):
 
@@ -139,7 +139,7 @@ Inside the app, every explanation ends with an **Evidence** panel listing each c
 
 ---
 
-## 🚀 Quick start
+## Quick start
 
 Requirements: Node.js 20 or newer, and a free CoinMarketCap API key from https://pro.coinmarketcap.com/account (the Basic plan is enough).
 
@@ -164,7 +164,7 @@ Prefer to set it up by hand? Copy `.env.example` to `.env` and set `CMC_PRO_API_
 
 ---
 
-## 🤖 MCP server
+## MCP server
 
 The same tools are exposed over the [Model Context Protocol](https://modelcontextprotocol.io), so an AI assistant can answer "why did my bag move?" with cited CMC data.
 
@@ -197,7 +197,7 @@ On Windows, use `"command": "npm.cmd"`. The `-s` flag matters: it keeps npm's ba
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 app/                     Next.js app router: page, layout, POST /api/explain
@@ -234,20 +234,20 @@ Each part in dollars is `value 24h ago × part / 100`, so the parts add up exact
 
 It then takes the most specific category left. When nothing qualifies, the coin gets no sector, and its move is split only between market and coin-specific.
 
-### 🛡️ Reliability: built for the judging period
+### Reliability: built for the judging period
 
 - **Basic-plan only.** Every core endpoint works on the free plan, so nothing breaks when the hackathon Startup tier ends.
 - **Graceful degradation.** Only the live quotes call is required. History (beta), sectors, sentiment and liquidations are optional: if one is rate-limited or not on the plan, the explanation still runs and a note says what was skipped. Coins without history fall back to beta 1, and the app says so.
 - **Caching.** Live data is cached for 60 s, history and sectors for 1 h. When CMC returns 429/5xx or is unreachable, the last good answer (up to 24 h old) is served and **labelled stale** in the evidence. Plan and auth errors are never hidden behind old data.
 - **Rate limiting.** Each visitor gets 6 explanations per minute, with 20 per minute overall, which protects the credit budget and the 50 calls/minute Basic limit. The page also waits out a 429's `Retry-After` (the button shows "Wait 31s") and never sends two requests less than 2 s apart, so rapid clicking cannot hammer the API.
 
-### 🔒 Security
+### Security
 
 - The API key lives only in `.env` (gitignored) or in a Vercel secret. `.env.example` holds a placeholder.
 - The browser never talks to CMC. The key is sent only as a server-side `X-CMC_PRO_API_KEY` header, and it never appears in URLs, evidence, logs or error messages (tested).
 - `npm run check:secrets` scans every file git would commit for key-shaped strings, and runs as part of `npm run verify`.
 
-### ✅ Testing
+### Testing
 
 ```bash
 npm run verify   # secret scan, tsc --noEmit (strict), eslint, 91 vitest tests
@@ -257,7 +257,7 @@ Most tests replay **real CMC responses** from `samples/` instead of hand-written
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 - **The windows don't line up exactly.** CMC's coin `percent_change_24h` and the global `total_market_cap_yesterday_percentage_change` are computed by CMC at slightly different times, so the market part is an estimate.
 - **Beta is a 30-day estimate.** It is clamped to between -1 and 4 so one odd month cannot produce absurd figures.
@@ -266,10 +266,10 @@ Most tests replay **real CMC responses** from `samples/` instead of hand-written
 - **Real-world assets use their tracking tokens.** RWA quotes have no 24h change field, so tokenized gold enters a portfolio as its token (PAXG, XAUt).
 - **This is not financial advice.**
 
-## 💬 Feedback on the API
+## Feedback on the API
 
 What the API made possible, and where it got in the way: see **[FEEDBACK.md](FEEDBACK.md)**.
 
-## 📄 License
+## License
 
 [MIT](LICENSE)
